@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Consultations
 {
+
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
