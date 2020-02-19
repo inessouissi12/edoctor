@@ -81,7 +81,7 @@ class MedecinAPIController extends AbstractFOSRestController
         }
         if (!$errors) {
             $encodedPassword = $this->PasswordEncoder->encodePassword($user, $password);
-            $user->setnom($nom);
+            $user->setNom($nom);
             $user->setPrenom($prenom);
             $user->setEmail($email);
             $user->setPassword($encodedPassword);
@@ -92,10 +92,9 @@ class MedecinAPIController extends AbstractFOSRestController
             $user->setDateNais(\DateTime::createFromFormat('d-m-Y', $datenais));
             $user->setNumserieM($numserieM);
             $user->setSexe($sexe);
-
                     $adr = $this->AdressRepository->findOneBy(['codePostal' => $codePostal]);
-
-                if ($adr == null) {
+                    try{
+                    if ($adr == null) {
                     $adr = new Adresse();
                     $errors[] = "code postal not found";
                     $adr->setPays($pays);
@@ -105,10 +104,16 @@ class MedecinAPIController extends AbstractFOSRestController
                     $this->EntityManager->persist($adr);
                     $this->EntityManager->flush();
                 }
-
                     $user->setAdresse($adr);
                     $this->EntityManager->persist($user);
                     $this->EntityManager->flush();
+
+
+                    
+            }
+            catch(\Exception $e){
+
+            }
                     return View::create($user, Response::HTTP_CREATED);
         }
         return View::create($errors, Response::HTTP_BAD_REQUEST);
