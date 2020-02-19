@@ -43,7 +43,7 @@ class Adresse implements \Serializable
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="adresse")
      */
-    protected $utilisateurs;
+    private $utilisateurs;
 
     public function __construct()
     {
@@ -154,4 +154,5 @@ class Adresse implements \Serializable
 
         return $this;
     }
+
 }
