@@ -71,13 +71,13 @@ class Utilisateur implements UserInterface
     protected $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="utilisateurs",cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="utilisateurs")
+     * @ORM\JoinColumn(nullable=false)
      */
-    protected $adresse;
+    private $adresse;
 
     public function __construct()
     {
-        $this->adresse = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,7 +230,7 @@ class Utilisateur implements UserInterface
 
     public function getAdresse(): ?Adresse
     {
-        return $this->getAdresse();
+        return $this->adresse;
     }
 
     public function setAdresse(?Adresse $adresse): self
