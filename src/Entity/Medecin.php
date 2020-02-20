@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MedecinRepository")
  */
-class Medecin extends Utilisateur implements \Serializable
+class Medecin extends Utilisateur
 {
     /**
      * @ORM\Column( name = "numserieM" ,type="integer", unique=true)
@@ -42,44 +42,6 @@ class Medecin extends Utilisateur implements \Serializable
     {
         return array('ROLE_ADMIN');
     }
-
-    public function serialize()
-    {
-        return   array(
-            $this->nom,
-            $this->prenom,
-            $this->username,
-            $this->password,
-            $this->email,
-            $this->cin,
-            $this->sexe,
-            $this->image,
-            $this->dateNais,
-            $this->numserieM,
-            $this->consultation,
-            $this->numtel);
-    }
-
-    /**
-     * @param string $serialized
-     */
-    public function unserialize($serialized)
-    {
-        list($this->nom,
-            $this->prenom,
-            $this->username,
-            $this->password,
-            $this->email,
-            $this->cin,
-            $this->sexe,
-            $this->image,
-            $this->dateNais,
-            $this->numserieM,
-            $this->consultation,
-            $this->numtel)= unserialize($serialized);
-    }
-
-
     /**
      * @return Collection|Consultations[]
      */

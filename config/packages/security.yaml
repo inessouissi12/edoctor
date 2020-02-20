@@ -7,7 +7,7 @@ security:
         m_provider:
             entity:
                 class: App/Entity/Utilisateur
-                property: email
+                property: email , username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

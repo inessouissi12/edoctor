@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdresseRepository")
  */
-class Adresse implements \Serializable
+class Adresse
 {
 
 
@@ -26,7 +26,7 @@ class Adresse implements \Serializable
     protected $adresse;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer",unique=true)
      */
     protected $codePostal;
 
@@ -102,35 +102,9 @@ class Adresse implements \Serializable
         return $this;
     }
 
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->adresse,
-            $this->codePostal,
-            $this->ville,
-            $this->pays
-        ));
-    }
-
-    public function unserialize($serialized)
-    {
-        list(
-            $this->id,
-            $this->adresse,
-            $this->codePostal,
-            $this->ville,
-            $this->pays
-            ) = unserialize($serialized);
-    }
-
     /**
      * @return Collection|Utilisateur[]
      */
-    public function getUtilisateurs(): Collection
-    {
-        return $this->utilisateurs;
-    }
 
     public function addUtilisateur(Utilisateur $utilisateur): self
     {

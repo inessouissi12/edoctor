@@ -11,16 +11,17 @@ fos_rest:
   #            App\Exception\MyException: 403
   #        messages:
   #            App\Exception\MyException: Forbidden area.
-
+  body_listener: true
   format_listener:
     rules:
       - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json ] }
   view:
-    view_response_listener:
-      enabled: true
-      force : true
+    view_response_listener: true
+    formats:
+      json: true
   serializer:
     serialize_null: true
+    groups: true
   body_converter:
     enabled: true
     validate: true
