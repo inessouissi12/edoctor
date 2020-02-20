@@ -3,27 +3,40 @@ security:
     encoders:
         App\Entity\Medecin: 'auto'
     providers:
-        users_in_memory: { memory: null }
         m_provider:
             entity:
-                class: App/Entity/Utilisateur
-                property: email , username
+                class: App/Entity/medecin
+                property: username
     firewalls:
+        main:
+            anonymous: true
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: true
-            provider: m_provider
+#        login:
+ #           pattern:  ^/api/login
+  #          stateless: true
+   #         anonymous: true
+    #        json_login:
+     #           check_path:               /api/login_check
+      #          success_handler:          lexik_jwt_authentication.handler.authentication_success
+       #         failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+        #register:
+         #   pattern: ^/api/registers
+          #  stateless : true
+           # anonymous: true
 
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#firewalls-authentication
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
+#        api:
+ #           pattern:   ^/api
+  #          stateless: true
+   #         guard:
+    #            authenticators:
+     #               - lexik_jwt_authentication.jwt_token_authenticator
+      #          entry_point: lexik_jwt_authentication.jwt_token_authenticator
+    #role_hierarchy:
+     #   ROLE_ADMIN: ROLE_USER
+#
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/profile, roles: ROLE_USER }
+ #       - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+  #      - { path: ^/api/registers, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+   #     - { path: ^/api/*, roles: IS_AUTHENTICATED_FULLY }

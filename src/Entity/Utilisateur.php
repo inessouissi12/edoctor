@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -65,13 +63,33 @@ class Utilisateur implements UserInterface
      */
     protected $password;
 
+    protected $confirmer_password;
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmerPassword()
+    {
+        return $this->confirmer_password;
+    }
+
+    /**
+     * @param mixed $confirmer_password
+     */
+    public function setConfirmerPassword($confirmer_password): void
+    {
+        $this->confirmer_password = $confirmer_password;
+    }
+
+
+
     /**
      * @ORM\Column(type="string", length=255)
      */
     protected $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="utilisateurs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="utilisateurs", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $adresse;

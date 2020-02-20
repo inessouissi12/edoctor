@@ -3,8 +3,12 @@
 #    controller: App\Controller\DefaultController::index
 App:
   type: rest
-  resource : App\Controller\MedecinAPIController
+  resource : App\Controller\MedecinController
   prefix : api
+
+api_login_check:
+  path: /api/login_check
+  methods:  [POST]
 
 App1:
   type: rest

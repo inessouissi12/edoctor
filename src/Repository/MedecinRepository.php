@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Medecin;
+use App\Entity\medecin;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Medecin|null find($id, $lockMode = null, $lockVersion = null)
- * @method Medecin|null findOneBy(array $criteria, array $orderBy = null)
- * @method Medecin[]    findAll()
- * @method Medecin[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method medecin|null find($id, $lockMode = null, $lockVersion = null)
+ * @method medecin|null findOneBy(array $criteria, array $orderBy = null)
+ * @method medecin[]    findAll()
+ * @method medecin[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class MedecinRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Medecin::class);
+        parent::__construct($registry, medecin::class);
     }
 
     // /**
-    //  * @return Medecin[] Returns an array of Medecin objects
+    //  * @return medecin[] Returns an array of medecin objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class MedecinRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Medecin
+    public function findOneBySomeField($value): ?medecin
     {
         return $this->createQueryBuilder('m')
             ->andWhere('m.exampleField = :val')

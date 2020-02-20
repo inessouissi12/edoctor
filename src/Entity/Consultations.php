@@ -81,12 +81,12 @@ class Consultations
         return $this;
     }
 
-    public function getMedecin(): ?Medecin
+    public function getMedecin(): ?medecin
     {
         return $this->medecin;
     }
 
-    public function setMedecin(?Medecin $medecin): self
+    public function setMedecin(?medecin $medecin): self
     {
         $this->medecin = $medecin;
 
