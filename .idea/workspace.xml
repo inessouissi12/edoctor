@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="50d1543c-9fd7-4b5e-90df-c7bf2c67c00d" name="Default Changelist" comment="">
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -14,6 +15,9 @@
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200219131004.php" beforeDir="false" />
 >>>>>>> ca462ab36238325418b81d0915478a64f8df44b1
     </list>
+=======
+    <list default="true" id="50d1543c-9fd7-4b5e-90df-c7bf2c67c00d" name="Default Changelist" comment="" />
+>>>>>>> master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +30,9 @@
     </execution>
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
@@ -40,8 +47,11 @@
     <expand />
     <select />
   </component>
+<<<<<<< HEAD
 =======
 >>>>>>> ca462ab36238325418b81d0915478a64f8df44b1
+=======
+>>>>>>> master
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -152,6 +162,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XvUrcFYAAPWoF4L4Yp41X6wl0t" />
@@ -166,6 +179,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="php.override.implement.member.chooser.php.doc" value="DEFAULT" />
+    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -187,6 +201,8 @@
       <workItem from="1582114399681" duration="1381000" />
       <workItem from="1582116195553" duration="469000" />
       <workItem from="1582123898931" duration="537000" />
+      <workItem from="1582127887909" duration="2830000" />
+      <workItem from="1582140246419" duration="15764000" />
     </task>
     <servers />
   </component>
@@ -194,10 +210,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1963" y="120" width="430" height="652" key="#com.intellij.ide.util.MemberChooser" timestamp="1582116626021">
-      <screen x="1366" y="0" width="1600" height="900" />
+    <state x="510" y="99" width="397" height="537" key="#com.intellij.ide.util.MemberChooser" timestamp="1582141430290">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="1963" y="120" width="430" height="652" key="#com.intellij.ide.util.MemberChooser/0.0.1366.741/1366.0.1600.900@1366.0.1600.900" timestamp="1582116626021" />
+    <state x="510" y="99" width="397" height="537" key="#com.intellij.ide.util.MemberChooser/0.0.1366.741@0.0.1366.741" timestamp="1582141430290" />
     <state x="1730" y="0" width="853" height="895" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582040109181">
       <screen x="1366" y="0" width="1600" height="900" />
     </state>
@@ -206,9 +223,17 @@
       <screen x="1366" y="0" width="1600" height="900" />
     </state>
     <state x="1899" y="207" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.741/1366.0.1600.900@1366.0.1600.900" timestamp="1581953791816" />
+    <state x="187" y="4" key="SettingsEditor" timestamp="1582140352265">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1582140352265" />
     <state x="1830" y="203" key="run.anything.popup" timestamp="1581928651857">
       <screen x="1366" y="0" width="1600" height="900" />
     </state>
     <state x="1830" y="203" key="run.anything.popup/0.0.1366.741/1366.0.1600.900@1366.0.1600.900" timestamp="1581928651857" />
+    <state x="346" y="62" width="672" height="678" key="search.everywhere.popup" timestamp="1582141407955">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="346" y="62" width="672" height="678" key="search.everywhere.popup/0.0.1366.741@0.0.1366.741" timestamp="1582141407955" />
   </component>
 </project>

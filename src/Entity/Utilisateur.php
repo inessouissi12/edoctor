@@ -19,7 +19,7 @@ class Utilisateur implements UserInterface
      * @ORM\Column(type="integer", unique=true)
      */
 
-    private $id;
+    protected $id;
     /**
      * @ORM\Column(name ="nom" ,type="string")
      */
@@ -221,7 +221,6 @@ class Utilisateur implements UserInterface
 
     public function getSalt()
     {
-        return null;
     }
 
     public function eraseCredentials()
