@@ -105,15 +105,9 @@ class MedecinController extends AbstractFOSRestController
 
     /**
      * @Route(path="/api/login",name="api_login",methods={"POST"})
-     * @return JsonResponse
+     * @return void
      */
     public function login(){
-         $user = $this->getUser();
-
-        return $this->json([
-            'username' => $user->getUsername(),
-            'roles' => $user->getRoles(),
-        ]);
     }
 
     /**

@@ -1,5 +1,6 @@
 
 ###> symfony/framework-bundle ###
+/.env
 /.idea/workspace.xml
 /.env.local
 /.env.local.php
@@ -7,7 +8,6 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
-/.env
 /vendor/
 ###< symfony/framework-bundle ###
 

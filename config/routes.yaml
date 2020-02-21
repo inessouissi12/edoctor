@@ -4,7 +4,6 @@
 App:
   type: rest
   resource : App\Controller\MedecinController
-  prefix : api
 
 api_logout:
   path: /api/logout
@@ -12,4 +11,3 @@ api_logout:
 App1:
   type: rest
   resource : App\Controller\PatientAPIController
-  prefix : api
