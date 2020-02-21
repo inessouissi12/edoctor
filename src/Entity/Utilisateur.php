@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
@@ -20,6 +21,7 @@ class Utilisateur implements UserInterface
     protected $id;
     /**
      * @ORM\Column(name ="nom" ,type="string")
+     * @Groups("api")
      */
     protected $nom;
 
@@ -66,6 +68,14 @@ class Utilisateur implements UserInterface
     protected $confirmer_password;
 
     /**
+
+     * @ORM\Column(type="json_array")
+
+     */
+
+    private $roles = array();
+
+    /**
      * @return mixed
      */
     public function getConfirmerPassword()
@@ -96,6 +106,7 @@ class Utilisateur implements UserInterface
 
     public function __construct()
     {
+
     }
 
     public function getId(): ?int
@@ -232,10 +243,27 @@ class Utilisateur implements UserInterface
         return $this;
     }
 
-    public function getRoles()
+    /**
+     * @return array
+     */
+    public function getRoles(): array
     {
-
+        $roles = $this->roles;
+        return array_unique($roles);
     }
+
+    /**
+     * @param array $roles
+     * @return Utilisateur
+     */
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+
 
     public function getSalt()
     {
@@ -256,5 +284,4 @@ class Utilisateur implements UserInterface
 
         return $this;
     }
-
 }

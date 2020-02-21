@@ -58,6 +58,7 @@ class Patient extends Utilisateur
         parent::__construct();
         $this->consultation = new ArrayCollection();
         $this->rendezvouses = new ArrayCollection();
+        $this->setRoles(["ROLE_USER"]);
     }
 
     public function getId(): ?int
@@ -178,10 +179,6 @@ class Patient extends Utilisateur
             $this->validiteCarnet,
             $this->numtel
             ) = unserialize($serialized);
-    }
-    public function getRoles()
-    {
-        return array('ROLE_USER');
     }
 
     /**

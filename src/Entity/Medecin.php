@@ -24,6 +24,7 @@ class Medecin extends Utilisateur
     {
         parent::__construct();
         $this->consultation = new ArrayCollection();
+        $this->setRoles(["ROLE_ADMIN"]);
     }
 
     public function getNumserieM(): ?string
@@ -36,11 +37,6 @@ class Medecin extends Utilisateur
         $this->numserieM = $numserieM;
 
         return $this;
-    }
-
-    public function getRoles()
-    {
-        return array('ROLE_ADMIN');
     }
     /**
      * @return Collection|Consultations[]

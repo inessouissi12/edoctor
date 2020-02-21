@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\EncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -70,7 +71,7 @@ class MedecinController extends AbstractFOSRestController
     /**
      * @param Request $request
      * @return View
-     * @Route("/api/register" , name="api_register", methods={"POST"})
+     * @Route("/register" , name="api_register", methods={"POST"})
      */
     public function register(Request $request)
     {
@@ -103,15 +104,16 @@ class MedecinController extends AbstractFOSRestController
     }
 
     /**
-     * @param Request $request
      * @Route(path="/api/login",name="api_login",methods={"POST"})
+     * @return JsonResponse
      */
-    public function login(Request $request){
-        /*$user = $this->getUser();
-        return new Response([
-            'email' => $user->getUsername(),
+    public function login(){
+         $user = $this->getUser();
+
+        return $this->json([
+            'username' => $user->getUsername(),
             'roles' => $user->getRoles(),
-        ]);*/
+        ]);
     }
 
     /**
@@ -119,7 +121,7 @@ class MedecinController extends AbstractFOSRestController
      * @param $cin
      * @IsGranted("ROLE_USER")
      * @return View
-     * @Route("/api/modify" , name="api_modify", methods={"PUT"})
+     * @Route("/api/modify/{cin}" , name="api_modify", methods={"PUT"})
      */
     public function ModifyAccountDoctor(Request $request, $cin){
         try {
@@ -154,7 +156,7 @@ class MedecinController extends AbstractFOSRestController
      * @param $cin
      * @return View
      * @IsGranted("ROLE_USER")
-     * @Route("/api/delete" , name="api_delete", methods={"DELETE"})
+     * @Route("/api/delete/{cin}" , name="api_delete", methods={"DELETE"})
      */
     public function delete($cin){
         $user = $this->UtilisateurRepository->findOneBy(["cin"=>$cin]);
