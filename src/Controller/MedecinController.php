@@ -9,6 +9,7 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\EncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -69,8 +70,9 @@ class MedecinController extends AbstractFOSRestController
     /**
      * @param Request $request
      * @return View
+     * @Route("/api/register" , name="api_register", methods={"POST"})
      */
-    public function postRegisterAction(Request $request)
+    public function register(Request $request)
     {
         $data = $this->Encoder->Encode($request->getContent(),"json");
         $data = $this->Serializer->deserialize($request->getContent(),Medecin::class,"json");
@@ -102,23 +104,24 @@ class MedecinController extends AbstractFOSRestController
 
     /**
      * @param Request $request
-     * @return Response
-     * @Route(path="/api/login_check",name="api_login",methods={"POST"})
+     * @Route(path="/api/login",name="api_login",methods={"POST"})
      */
     public function login(Request $request){
-        $user = $this->getUser();
+        /*$user = $this->getUser();
         return new Response([
             'email' => $user->getUsername(),
             'roles' => $user->getRoles(),
-        ]);
+        ]);*/
     }
 
     /**
      * @param Request $request
      * @param $cin
+     * @IsGranted("ROLE_USER")
      * @return View
+     * @Route("/api/modify" , name="api_modify", methods={"PUT"})
      */
-    public function putDoctorAction(Request $request, $cin){
+    public function ModifyAccountDoctor(Request $request, $cin){
         try {
             $old = $this->UtilisateurRepository->findOneBy(["cin"=>$cin]);
 
@@ -146,7 +149,14 @@ class MedecinController extends AbstractFOSRestController
             return View::create($errors,Response::HTTP_BAD_REQUEST);
         }
     }
-    public function deleteDoctorAction($cin){
+
+    /**
+     * @param $cin
+     * @return View
+     * @IsGranted("ROLE_USER")
+     * @Route("/api/delete" , name="api_delete", methods={"DELETE"})
+     */
+    public function delete($cin){
         $user = $this->UtilisateurRepository->findOneBy(["cin"=>$cin]);
         $this->EntityManager->remove($user);
         $this->EntityManager->flush();

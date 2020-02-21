@@ -13,7 +13,7 @@ class Medecin extends Utilisateur
     /**
      * @ORM\Column( name = "numserieM" ,type="integer", unique=true)
      */
-    private $numserieM;
+    protected $numserieM;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Consultations", mappedBy="medecin", orphanRemoval=true)

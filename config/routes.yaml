@@ -6,9 +6,8 @@ App:
   resource : App\Controller\MedecinController
   prefix : api
 
-api_login_check:
-  path: /api/login_check
-  methods:  [POST]
+api_logout:
+  path: /api/logout
 
 App1:
   type: rest
