@@ -24,7 +24,6 @@ class Medecin extends Utilisateur
     {
         parent::__construct();
         $this->consultation = new ArrayCollection();
-        $this->setRoles(["ROLE_ADMIN"]);
     }
 
     public function getNumserieM(): ?string
