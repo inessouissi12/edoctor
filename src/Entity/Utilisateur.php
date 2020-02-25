@@ -18,7 +18,7 @@ class Utilisateur implements UserInterface
      * @ORM\Column(type="integer", unique=true)
      */
 
-    protected $id;
+    private $id;
     /**
      * @ORM\Column(name ="nom" ,type="string")
      * @Groups("api")
