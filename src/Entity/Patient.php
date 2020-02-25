@@ -12,13 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Patient extends Utilisateur
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    protected $id;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $numcarnet;
@@ -59,11 +52,6 @@ class Patient extends Utilisateur
         $this->consultation = new ArrayCollection();
         $this->rendezvouses = new ArrayCollection();
         $this->setRoles(["ROLE_USER"]);
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getNumcarnet(): ?int
