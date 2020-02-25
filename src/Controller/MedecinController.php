@@ -104,7 +104,7 @@ class MedecinController extends AbstractFOSRestController
     }
 
     /**
-     * @Route(path="/api/login",name="api_login",methods={"POST"})
+     * @Route(path="/login",name="api_login",methods={"POST"})
      * @return void
      */
     public function login(){
@@ -115,7 +115,7 @@ class MedecinController extends AbstractFOSRestController
      * @param $cin
      * @IsGranted("ROLE_USER")
      * @return View
-     * @Route("/api/modify/{cin}" , name="api_modify", methods={"PUT"})
+     * @Route("/modify/{cin}" , name="api_modify", methods={"PUT"})
      */
     public function ModifyAccountDoctor(Request $request, $cin){
         try {
