@@ -20,8 +20,9 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
             guard:
+              authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-                authenticators:
+
             logout:
                 path: api_logout
         patient:
@@ -36,8 +37,6 @@ security:
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-            logout:
-                path: api_logout
         secretaire:
             pattern:  ^/secretaire/login
             stateless: true
@@ -61,7 +60,7 @@ security:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
         refresh:
-            pattern:  ^/api/token/refresh
+            pattern:  ^/token/refresh
             stateless: true
             anonymous: true
 
@@ -70,8 +69,9 @@ security:
         ROLE_SUPER_ADMIN : [ROLE_ADMIN,ROLE_USER]
 
     access_control:
+        - { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
 

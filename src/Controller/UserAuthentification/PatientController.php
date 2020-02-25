@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\UserAuthentification;
 
 use App\Entity\Adresse;
 use App\Entity\Patient;
@@ -100,7 +100,7 @@ PatientRepository $patientRepository , AdresseRepository $adresseRepository , En
             $data->setAdresse($adr);
             $this->EntityManager->persist($data);
             $this->EntityManager->flush();
-
+            $data->setConfirmerPassword(null);
             return View::create($data, Response::HTTP_OK);
         }
         return View::create($errors, Response::HTTP_BAD_REQUEST);
