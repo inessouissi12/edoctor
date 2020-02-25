@@ -143,44 +143,6 @@ class Patient extends Utilisateur
         $this->etatCivile = $etatCivile;
     }
 
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-            $this->email,
-            $this->cin,
-            $this->sexe,
-            $this->image,
-            $this->dateNais,
-            $this->etatCivile,
-            $this->profession,
-            $this->groupSang,
-            $this->validiteCarnet,
-            $this->numtel
-        ));
-    }
-
-    public function unserialize($serialized)
-    {
-        list(
-            $this->id,
-            $this->username,
-            $this->password,
-            $this->email,
-            $this->cin,
-            $this->sexe,
-            $this->image,
-            $this->dateNais,
-            $this->etatCivile,
-            $this->profession,
-            $this->groupSang,
-            $this->validiteCarnet,
-            $this->numtel
-            ) = unserialize($serialized);
-    }
-
     /**
      * @return Collection|Consultations[]
      */
