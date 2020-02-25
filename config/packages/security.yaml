@@ -59,11 +59,7 @@ security:
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-        refresh:
-            pattern:  ^/token/refresh
-            stateless: true
-            anonymous: true
-
+            user_checker: App\Security\UserEnableChecker
     role_hierarchy:
         ROLE_ADMIN: [ROLE_USER]
         ROLE_SUPER_ADMIN : [ROLE_ADMIN,ROLE_USER]

@@ -107,7 +107,7 @@ PatientRepository $patientRepository , AdresseRepository $adresseRepository , En
     }
 
     /**
-     * @Route(path="/patient/login",name="api_login",methods={"POST"})
+     * @Route(path="/patient/login",name="api_patient_login",methods={"POST"})
      * @return void
      */
     public function login()
@@ -180,7 +180,7 @@ return View::create($errors,Response::HTTP_BAD_REQUEST);
      * @param $cin
      * @return View
      * @IsGranted("ROLE_USER")
-     * @Route("/patient/delete/{cin}" , name="api_delete", methods={"DELETE"})
+     * @Route("/patient/delete/{cin}" , name="api_patient_delete", methods={"DELETE"})
      */
     public function delete($cin){
         $user = $this->UtilisateurRepository->findOneBy(["cin"=>$cin]);

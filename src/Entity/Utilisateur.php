@@ -104,8 +104,21 @@ class Utilisateur implements UserInterface
      */
     private $adresse;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $token;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $EnabledAccount;
+
     public function __construct()
     {
+
+            $this->setToken(rtrim(strtr(base64_encode(random_bytes(15)), '+/', '-_'), '='));
+            $this->setEnabledAccount(false);
 
     }
 
@@ -281,6 +294,30 @@ class Utilisateur implements UserInterface
     public function setAdresse(?Adresse $adresse): self
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    public function getEnabledAccount(): ?bool
+    {
+        return $this->EnabledAccount;
+    }
+
+    public function setEnabledAccount(bool $EnabledAccount): self
+    {
+        $this->EnabledAccount = $EnabledAccount;
 
         return $this;
     }
